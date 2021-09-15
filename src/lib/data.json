@@ -1,0 +1,194 @@
+{
+  "projects": [
+    {
+      "title": "Learn Javascript",
+      "levels": [
+        {
+          "level": 1,
+          "title": "level one",
+          "cards": [
+            {
+              "title": "Object Destructuring",
+              "embed_slug": "object-destructuring-wg01q",
+              "level": 1
+            },
+            {
+              "title": "second card title",
+              "embed_slug": "object-destructuring-wg01q",
+              "level": 1
+            },
+            {
+              "title": "third card title",
+              "embed_slug": "object-destructuring-wg01q",
+              "level": 1
+            },
+            {
+              "title": "first card title",
+              "embed_slug": "object-destructuring-wg01q",
+              "level": 1
+            },
+            {
+              "title": "second card title",
+              "embed_slug": "object-destructuring-wg01q",
+              "level": 1
+            },
+            {
+              "title": "second card title",
+              "embed_slug": "object-destructuring-wg01q",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "title": "level two",
+          "cards": [
+            {
+              "title": "level 2 - first card title",
+              "embed_slug": "object-destructuring-wg01q"
+            },
+            {
+              "title": "level 2 - second card title",
+              "embed_slug": "object-destructuring-wg01q"
+            },
+            {
+              "title": "level 2 - third card title",
+              "embed_slug": "object-destructuring-wg01q"
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "title": "level three",
+          "cards": [
+            {
+              "title": "level 3 - first card title",
+              "embed_slug": "object-destructuring-wg01q"
+            },
+            {
+              "title": "level 3 - second card title",
+              "embed_slug": "object-destructuring-wg01q"
+            },
+            {
+              "title": "level 3 - third card title",
+              "embed_slug": "object-destructuring-wg01q"
+            }
+          ]
+        },
+        {
+          "level": 4,
+          "title": "level four",
+          "cards": [
+            {
+              "title": "level 3 - first card title",
+              "embed_slug": "object-destructuring-wg01q"
+            },
+            {
+              "title": "level 3 - second card title",
+              "embed_slug": "object-destructuring-wg01q"
+            },
+            {
+              "title": "level 3 - third card title",
+              "embed_slug": "object-destructuring-wg01q"
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "title": "level five",
+          "cards": [
+            {
+              "title": "level 3 - first card title",
+              "embed_slug": "object-destructuring-wg01q"
+            },
+            {
+              "title": "level 3 - second card title",
+              "embed_slug": "object-destructuring-wg01q"
+            },
+            {
+              "title": "level 3 - third card title",
+              "embed_slug": "object-destructuring-wg01q"
+            }
+          ]
+        },
+        {
+          "level": 6,
+          "title": "level six",
+          "cards": [
+            {
+              "title": "level 3 - first card title",
+              "embed_slug": "object-destructuring-wg01q"
+            },
+            {
+              "title": "level 3 - second card title",
+              "embed_slug": "object-destructuring-wg01q"
+            },
+            {
+              "title": "level 3 - third card title",
+              "embed_slug": "object-destructuring-wg01q"
+            }
+          ]
+        },
+        {
+          "level": 7,
+          "title": "level seven",
+          "cards": [
+            {
+              "title": "level 3 - first card title",
+              "embed_slug": "object-destructuring-wg01q"
+            },
+            {
+              "title": "level 3 - second card title",
+              "embed_slug": "object-destructuring-wg01q"
+            },
+            {
+              "title": "level 3 - third card title",
+              "embed_slug": "object-destructuring-wg01q"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Learn Something else",
+      "levels": [
+        {
+          "level": 1,
+          "title": "something else level one title",
+          "cards": [
+            {
+              "title": "something else first card title",
+              "embed_slug": "object-destructuring-wg01q"
+            },
+            {
+              "title": "second card title",
+              "embed_slug": "object-destructuring-wg01q"
+            },
+            {
+              "title": "third card title",
+              "embed_slug": "object-destructuring-wg01q"
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "title": "level two title",
+          "cards": [
+            {
+              "title": "level 2 - first card title",
+              "embed_slug": "object-destructuring-wg01q"
+            },
+            {
+              "title": "level 2 - second card title",
+              "embed_slug": "object-destructuring-wg01q"
+            },
+            {
+              "title": "level 2 - third card title",
+              "embed_slug": "object-destructuring-wg01q"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
