@@ -11,6 +11,7 @@
 	"devDependencies": {
 		"@sveltejs/adapter-vercel": "next",
 		"@sveltejs/kit": "next",
+		"@tailwindcss/line-clamp": "^0.2.1",
 		"autoprefixer": "^10.3.4",
 		"eslint": "^7.22.0",
 		"eslint-config-prettier": "^8.1.0",
