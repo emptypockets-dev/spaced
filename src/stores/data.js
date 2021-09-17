@@ -10,35 +10,40 @@ export const projects = writable('projects', {
           embed_slug: 'dyRJepX',
           level: 1,
           level_name: 1,
-          question: 'How do you unpack a property from an object and assign it to a variable with'
+          question: 'How do you unpack a property from an object and assign it to a variable with',
+          lastReview: null
         },
         {
           title: 'JS Nullish Coalescing',
           embed_slug: 'powpKpy',
           level: 1,
           level_name: 1,
-          question: 'How do you evaluate default options if not undefined or null?'
+          question: 'How do you evaluate default options if not undefined or null?',
+          lastReview: null
         },
         {
           title: 'Javascript IIFE',
           embed_slug: 'PojEaQg',
           level: 1,
           level_name: 1,
-          question: 'How do you make function calls right away in their own scope?'
+          question: 'How do you make function calls right away in their own scope?',
+          lastReview: null
         },
         {
           title: 'Array - Remove by index',
           embed_slug: 'rNwpKKm',
           level: 1,
           level_name: 1,
-          question: 'How do you remove items from an array using their index?'
+          question: 'How do you remove items from an array using their index?',
+          lastReview: null
         },
         {
           title: 'Array - Remove by filter',
           embed_slug: 'jOwYKvq',
           level: 1,
           level_name: 1,
-          question: 'How do you create a new array with only the values you want to keep?'
+          question: 'How do you create a new array with only the values you want to keep?',
+          lastReview: null
         }
       ]
     },
