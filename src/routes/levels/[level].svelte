@@ -61,16 +61,9 @@
     }
   }
 
-  //   onMount(() => {
-  //     console.log('on mount again');
-  //     const getCard = async () => {
-  //       let cardss = await cards;
-  //       currentCard = cardss[0];
-  //       currentIndex = 0;
-  //       //   console.log('currentCard', currentCard);
-  //     };
-  //     getCard();
-  //   });
+  onMount(() => {
+    currentCard = $projects.projects[0].cards[0];
+  });
 
   const selectCard = (index) => {
     currentIndex = index;
