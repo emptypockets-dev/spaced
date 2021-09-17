@@ -1,24 +1,18 @@
 <script>
   import { projects } from '../../stores/data';
   import Card from '$lib/app/Card.svelte';
+  import ListAll from '$lib/app/ListAll.svelte';
   import NarrowSidebar from '$lib/app/NarrowSidebar.svelte';
   import Toolbar from '$lib/app/Toolbar.svelte';
   import { onMount } from 'svelte';
-  import { fade } from 'svelte/transition';
+  import { fly } from 'svelte/transition';
+  import { levelLabels } from '../../lib/app/app-utils';
   //   export let cards;
   let filteredCards = [];
   let selectedCard;
   let currentCard;
   let currentIndex = 0;
   let activeFilters = [2, 5];
-
-  const levelLabels = {
-    1: { name: 'level one', color: 'bg-gray-400' },
-    2: { name: 'level two', color: 'bg-red-400' },
-    3: { name: 'level three', color: 'bg-yellow-400' },
-    4: { name: 'level four', color: 'bg-blue-400' },
-    5: { name: 'level five', color: 'bg-purple-400' }
-  };
 
   $: {
     selectedCard = currentCard;
@@ -38,6 +32,10 @@
   //     });
   //     return false;
   //   }
+
+  function handleSelectCard(event) {
+    selectCard(event.detail.index);
+  }
 
   function handleMessage(event) {
     console.log(event.detail.level);
@@ -124,7 +122,7 @@
   };
 </script>
 
-<div class="relative h-screen overflow-hidden bg-gray-100 flex flex-col">
+<div class="relative h-screen overflow-hidden bg-gray-400 flex flex-col">
   <div class="min-h-0 flex-1 flex overflow-hidden">
     <NarrowSidebar />
 
@@ -142,8 +140,8 @@
             {#if selectedCard}
               {#key selectedCard.embed_slug}
                 <li
-                  in:fade={{ delay: 200 }}
-                  out:fade={{ duration: 150 }}
+                  in:fly={{ delay: 250, y: 10 }}
+                  out:fly={{ duration: 150, y: -10 }}
                   class="bg-white px-4 py-6 shadow sm:rounded-lg sm:px-6"
                 >
                   <Card {selectedCard} />
@@ -160,62 +158,23 @@
           <div class="flex-shrink-0">
             <div class="h-16 bg-white px-6 flex flex-col justify-center">
               <div class="flex items-baseline space-x-3">
-                <h2 class="text-lg font-medium text-gray-900">Today's Review:</h2>
-                <p class="text-sm font-medium text-gray-500">levels five and two</p>
+                <h2 class="text-lg font-medium text-gray-900">Javascript Collection</h2>
+                <p class="text-sm font-medium text-gray-500">204 cards</p>
               </div>
             </div>
-            <div
+            <!-- <div
               class="border-t border-b border-gray-200 bg-gray-50 px-6 py-2 text-sm font-medium text-gray-500"
             >
               Sorted by level
-            </div>
+            </div> -->
+            <!-- <div
+              class="border-t border-b border-gray-200 bg-gray-50 px-6 py-2 text-sm font-medium text-gray-500"
+            >
+              Sorted by level
+            </div> -->
           </div>
-          <nav aria-label="Message list" class="min-h-0 flex-1 overflow-y-auto">
-            <ul role="list" class="border-b border-gray-200 divide-y divide-gray-200">
-              <!-- {#await $projects}
-                ...pending
-              {:then data} -->
 
-              {#each filteredCards as card, i}
-                <!-- {JSON.stringify(filteredCards)} -->
-                <li
-                  class="relative bg-white py-5 px-6 hover:bg-gray-50 focus-within:ring-2 focus-within:ring-inset focus-within:ring-blue-600 {currentCard ===
-                  card
-                    ? 'bg-gray-200 hover:bg-gray-200'
-                    : ''}
-					  "
-                  on:click={() => selectCard(i)}
-                >
-                  <div class="flex justify-between space-x-3">
-                    <div class="min-w-0 flex-1">
-                      <span class="absolute inset-0" aria-hidden="true" />
-                      <p class="text-sm font-medium text-gray-900 truncate flex">
-                        {card.title}
-                      </p>
-                      <p class="text-sm text-gray-500 truncate">Javascript</p>
-                    </div>
-                    <div
-                      datetime="2021-01-27T16:35"
-                      class="flex-shrink-0 whitespace-nowrap text-sm text-gray-500 flex items-start"
-                    >
-                      <span
-                        class="block w-2 h-2  rounded-full relative top-1.5 -left-1.5 {levelLabels[
-                          card.level
-                        ].color}"
-                      />
-                      {card.level_name}
-                    </div>
-                  </div>
-                  <div class="mt-1">
-                    <p class="line-clamp-2 text-sm text-gray-600">
-                      {card.question}
-                    </p>
-                  </div>
-                </li>
-              {/each}
-              <!-- {/await} -->
-            </ul>
-          </nav>
+          <ListAll {filteredCards} {currentCard} on:selectCard={handleSelectCard} />
         </div>
       </aside>
     </main>

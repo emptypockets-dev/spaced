@@ -1,13 +1,6 @@
 <script>
   export let selectedCard;
-
-  const levelLabels = {
-    1: { name: 'level one', color: 'bg-gray-400' },
-    2: { name: 'level two', color: 'bg-red-400' },
-    3: { name: 'level three', color: 'bg-yellow-400' },
-    4: { name: 'level four', color: 'bg-blue-400' },
-    5: { name: 'level five', color: 'bg-purple-400' }
-  };
+  import { levelLabels } from './app-utils';
 
   // console.log(selectedCard);
 
@@ -18,28 +11,53 @@
 </script>
 
 <div class="sm:flex sm:justify-between sm:items-center">
-  <h3 class="text-base font-medium">
-    <span class="text-gray-900">{selectedCard.title}</span>
-    <span class="text-gray-600">in javascript</span>
-  </h3>
+  <!-- <h3 class="text-base font-medium">
+    <span class="text-white">Scratchpad</span>
+  </h3> -->
   <p class="flex-shrink-0 whitespace-nowrap text-sm text-gray-500 flex items-start">
-    <span
+    <!-- <span
       class="block w-2 h-2 rounded-full relative top-1.5 -left-1.5 {levelLabels[selectedCard.level]
         .color}"
     />
-    {selectedCard.level_name}
+    {selectedCard.level_name} -->
+    <!-- <span
+      class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium {levelLabels[
+        selectedCard.level
+      ].bg} text-gray-600"
+    >
+      <svg
+        class="-ml-0.5 mr-1.5 h-2 w-2 {levelLabels[selectedCard.level].color}"
+        fill="currentColor"
+        viewBox="0 0 8 8"
+      >
+        <circle cx="4" cy="4" r="3" />
+      </svg>
+      {selectedCard.level_name}
+    </span> -->
   </p>
 </div>
-<div class="mt-4 space-y-6">
+<div class="bg-white px-6 py-8 shadow sm:rounded-lg" style="background-color: #3d3d3e;">
+  <!-- Codepen embed -->
   <iframe
-    height="400"
+    src="https://codesandbox.io/embed/${selectedCard.embed_slug}?autoresize=1&expanddevtools=1&fontsize=14&hidenavigation=1&theme=dark"
+    style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+    title="Object Destructuring"
+    allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+    sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+  />
+  <!-- <iframe
+    height="420"
     style="width: 100%;"
     scrolling="no"
     title=""
-    src={`https://codepen.io/emptypockets-dev/embed/${selectedCard.embed_slug}?default-tab=js&editable=true&theme-id=dark`}
+    src={`https://codepen.io/emptypockets-dev/embed/?default-tab=js&editable=true`}
     frameborder="no"
     loading="lazy"
     allowtransparency="true"
     allowfullscreen="true"
-  />
+  >
+    See the Pen <a href="https://codepen.io/emptypockets-dev/pen/MWoQKQx" /> by Andrey Kondratyuk (<a
+      href="https://codepen.io/emptypockets-dev">@emptypockets-dev</a
+    >) on <a href="https://codepen.io">CodePen</a>.
+  </iframe> -->
 </div>

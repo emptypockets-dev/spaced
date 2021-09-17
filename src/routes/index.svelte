@@ -29,7 +29,7 @@
         </div>
         <div class="mt-20">
           <div>
-            <a href="/levels/one" class="inline-flex space-x-4">
+            <a href="/levels" class="inline-flex space-x-4">
               <span
                 class="rounded bg-indigo-50 px-2.5 py-1 text-xs font-semibold text-indigo-600 tracking-wide uppercase"
               >

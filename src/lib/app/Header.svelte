@@ -4,7 +4,7 @@
   <div class="absolute inset-y-0 left-0 lg:static lg:flex-shrink-0">
     <a
       href="/"
-      class="flex items-center justify-center h-16 w-16 bg-green-600 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-600 lg:w-20"
+      class="flex items-center justify-center h-16 w-16 bg-gray-600 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-600 lg:w-20"
     >
       <img
         class="h-8 w-auto"
@@ -109,12 +109,12 @@
       </div>
     </div>
     <div class="ml-10 pr-4 flex-shrink-0 flex items-center space-x-10">
-      <nav aria-label="Global" class="flex space-x-10">
+      <!-- <nav aria-label="Global" class="flex space-x-10">
         <a href="/" class="text-sm font-medium text-gray-900">Reporting</a>
 
         <a href="/" class="text-sm font-medium text-gray-900">Settings</a>
-      </nav>
-      <div class="flex items-center space-x-8">
+      </nav> -->
+      <div class="flex items-center space-x-6">
         <span class="inline-flex">
           <a href="/" class="-mx-1 bg-white p-1 rounded-full text-gray-400 hover:text-gray-500">
             <span class="sr-only">View notifications</span>
@@ -146,11 +146,7 @@
             aria-haspopup="true"
           >
             <span class="sr-only">Open user menu</span>
-            <img
-              class="h-8 w-8 rounded-full"
-              src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-              alt=""
-            />
+            <img class="h-8 w-8 rounded-full" src="/avatar.png" alt="" />
           </button>
 
           <!--
