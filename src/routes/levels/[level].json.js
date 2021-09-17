@@ -1,26 +1,22 @@
-// import db from db
+// import json from '/data.json';
+// import { promises as fs } from 'fs';
 
-import json from '$lib/data.json';
+// export async function get({ params }) {
+//   return {
+//     status: 200,
+//     body: {
+//       project: json.projects[0],
+//       cards: json.projects[0].cards
+//     }
+//   };
+// }
 
-export async function get({ params }) {
-  // db.collection.find()
-  // data
-
-  console.log(params);
-
-  let index;
-
-  if (params > 0) {
-    index = params.level - 1;
-  } else {
-    index = 0;
-  }
-
-  return {
-    status: 200,
-    body: {
-      project: json.projects[index],
-      cards: json.projects[index].levels[0].cards
-    }
-  };
-}
+// export async function post(request) {
+//   json.projects[0].cards = JSON.parse(request.body);
+//   try {
+//     await fs.writeFile('/data.json', JSON.stringify(json, null, '\t'));
+//   } catch (error) {
+//     console.log(error);
+//   }
+//   return false;
+// }
