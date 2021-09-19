@@ -1,14 +1,15 @@
 <script>
   export let filteredCards;
   export let currentCard;
+  import { levelLabels } from './app-utils';
 
-  const levelLabels = {
-    1: { name: 'level one', color: 'bg-gray-400' },
-    2: { name: 'level two', color: 'bg-red-400' },
-    3: { name: 'level three', color: 'bg-yellow-400' },
-    4: { name: 'level four', color: 'bg-blue-400' },
-    5: { name: 'level five', color: 'bg-purple-400' }
-  };
+  // const levelLabels = {
+  //   1: { name: 'level one', color: 'bg-gray-400' },
+  //   2: { name: 'level two', color: 'bg-red-400' },
+  //   3: { name: 'level three', color: 'bg-yellow-400' },
+  //   4: { name: 'level four', color: 'bg-blue-400' },
+  //   5: { name: 'level five', color: 'bg-purple-400' }
+  // };
 
   import { createEventDispatcher } from 'svelte';
   const dispatch = createEventDispatcher();
@@ -55,7 +56,7 @@
               <span
                 class="block w-2 h-2  rounded-full relative top-1.5 -left-1.5 {levelLabels[
                   card.level
-                ].color}"
+                ].bg} {levelLabels[card.level].color}"
               />
               {card.level_name}
             </div>

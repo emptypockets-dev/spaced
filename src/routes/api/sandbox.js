@@ -2,65 +2,70 @@ import { getParameters } from 'codesandbox/lib/api/define';
 import { get } from 'svelte/store';
 import { projects } from '../../stores/data';
 
-const addCodeToParams = (code) => {
+const addCodeToParams = (codeQuestion, codeAnswer) => {
   const parameters = getParameters({
     files: {
       'index.html': {
         content: `
         <!DOCTYPE html>
         <html>
-          <head>
-            <title>Parcel Sandbox</title>
-            <meta charset="UTF-8" />
-            <link rel="stylesheet" href="/styles.css" />
-          </head>
-        
-          <body>
-            <div id="app"></div>
-        
-            <script src="/index.js"></script>
-          </body>
+
+        <head>
+          <title>Sandbox</title>
+          <meta charset="UTF-8" />
+          <link rel="stylesheet" href="src/styles.css">
+        </head>
+
+        <body>
+          <div id="app"></div>
+
+          <script src="src/index.js"></script>
+          <script src="src/solution.js"></script>
+        </body>
+
         </html>
         `
       },
-      'index.js': {
-        content: code
+      '/src/index.js': {
+        content: codeQuestion
+      },
+      '/src/solution.js': {
+        content: codeAnswer
       },
       'package.json': {
         content: `
         {
-          "name": "object-destructuring",
+          "name": "vanilla",
           "version": "1.0.0",
-          "description": "",
+          "description": "JavaScript example starter project",
           "main": "index.html",
           "scripts": {
             "start": "parcel index.html --open",
             "build": "parcel build index.html"
           },
-          "dependencies": {
-            "parcel-bundler": "^1.6.1"
-          },
+          "dependencies": { "parcel-bundler": "^1.6.1" },
           "devDependencies": {
             "@babel/core": "7.2.0"
           },
           "resolutions": {
             "@babel/preset-env": "7.13.8"
           },
-          "keywords": []
-        }
+          "keywords": ["javascript", "starter"]
+        }        
         `
       },
-      'styles.css': {
-        content: 'body { background-color: #000 };'
+      '/src/styles.css': {
+        content: 'body { background-color: #000; color: #fff; }'
       }
     }
   });
-  const url = `https://codesandbox.io/api/v1/sandboxes/define?parameters=${parameters}&json=1&`;
+  const url = `https://codesandbox.io/api/v1/sandboxes/define?parameters=${parameters}&json=1`;
   return url;
 };
 
-const createSandboxId = async (code) => {
-  const urlWithCode = addCodeToParams(code);
+const createSandboxId = async (codeQuestion, codeAnswer) => {
+  const urlWithCode = addCodeToParams(codeQuestion, codeAnswer);
+
   try {
     const submit = await fetch(urlWithCode, {
       method: 'POST'
@@ -73,36 +78,15 @@ const createSandboxId = async (code) => {
   }
 };
 
-const createNewCard = (question, answer, sandboxId) => {
-  let embed = sandboxId.sandbox_id;
-  console.log(embed);
-  const card = {
-    title: question,
-    embed_slug: embed,
-    answer: answer,
-    level: 1,
-    level_name: 'level one',
-    question: question,
-    lastReview: null
-  };
-  let data = get(projects);
-  data.projects[0].cards.unshift(card);
-  console.log('data', data.projects[0].cards);
-  projects.set(data);
-  // return projects;
-  // let newData = get(projects);
-  // console.log(newData.projects[0].cards);
-  // console.log(newData);
-};
-
 export const post = async (request) => {
   const formBody = JSON.parse(request.body);
   // get parts of the card from the form
   const question = formBody.question;
   const answer = formBody.answer;
-  const code = formBody.code;
+  const codeQuestion = formBody.codeQuestion;
+  const codeAnswer = formBody.codeAnswer;
   // make a post request to the sandbox api
-  const sandboxId = await createSandboxId(code);
+  const sandboxId = await createSandboxId(codeQuestion, codeAnswer);
   // add that card to svelte store
   // createNewCard(question, answer, sandboxId);
   // return a successfully created message
@@ -111,7 +95,8 @@ export const post = async (request) => {
       question,
       answer,
       sandboxId,
-      code
+      codeQuestion,
+      codeAnswer
     }
   };
 };

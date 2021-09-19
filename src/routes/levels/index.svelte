@@ -192,25 +192,14 @@
             </div>
           </div>
           <!-- Selected Card-->
-          <ul role="list" class="py-4 space-y-2 sm:px-6 sm:space-y-4 lg:px-8">
+          <ul role="list" class="py-7 space-y-2 sm:px-6 sm:space-y-4 lg:px-8">
             {#if selectedCard}
-              {#key selectedCard.embed_slug}
-                <li in:fly={{ delay: 250, y: 10 }} out:fly={{ duration: 150, y: -10 }}>
+              {#key selectedCard}
+                <li
+                  in:fly={{ delay: 300, duration: 250, y: 50 }}
+                  out:fly={{ duration: 150, y: -50 }}
+                >
                   <Card {selectedCard} />
-                  <div class="bg-yellow-50 px-4 py-6 mt-2 shadow sm:rounded-lg sm:px-6">
-                    <div class="sm:flex sm:justify-between sm:items-baseline">
-                      <h3 class="text-base font-medium">
-                        <span class="text-gray-900">Note</span>
-                        <span class="text-gray-600">to self</span>
-                      </h3>
-                      <p class="mt-1 text-sm text-gray-600 whitespace-nowrap sm:mt-0 sm:ml-3">
-                        <time datetime="2021-01-28T19:24">Last review 9/13/21</time>
-                      </p>
-                    </div>
-                    <div class="mt-4 space-y-6 text-sm text-gray-600">
-                      <p>This can be used to pass in arguments into a function</p>
-                    </div>
-                  </div>
                 </li>
               {/key}
             {/if}
@@ -225,7 +214,7 @@
             <div class="h-16 bg-white px-6 flex flex-col justify-center">
               <div class="flex items-baseline space-x-3">
                 <h2 class="text-lg font-medium text-gray-900">To Review</h2>
-                <p class="text-sm font-medium text-gray-500">levels five and two</p>
+                <p class="text-sm font-medium text-gray-500">levels five and two today</p>
               </div>
             </div>
             <!-- <div
@@ -240,7 +229,7 @@
 				  ...pending
 				{:then data} -->
 
-              {#each $projects.projects[0].cards as card, i}
+              {#each filteredCards as card, i}
                 <!-- {JSON.stringify(filteredCards)} -->
                 <li
                   class="relative bg-white py-5 px-6 hover:bg-gray-100 focus-within:ring-2 focus-within:ring-inset focus-within:ring-blue-600 {currentCard ===
@@ -260,13 +249,11 @@
                     </div>
 
                     <span
-                      class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-gray-600"
+                      class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium {levelLabels[
+                        card.level
+                      ].color}"
                     >
-                      <svg
-                        class="-ml-0.5 mr-1.5 h-2 w-2 {levelLabels[card.level].color}"
-                        fill="currentColor"
-                        viewBox="0 0 8 8"
-                      >
+                      <svg class="-ml-0.5 mr-1.5 h-2 w-2" fill="currentColor" viewBox="0 0 8 8">
                         <circle cx="4" cy="4" r="3" />
                       </svg>
                       {card.level_name}

@@ -1,5 +1,6 @@
 <script>
   import { projects } from '../../stores/data';
+  import { get } from 'svelte/store';
   import NarrowSidebar from '$lib/app/NarrowSidebar.svelte';
   import Toolbar from '$lib/app/Toolbar.svelte';
   import { onMount } from 'svelte';
@@ -10,7 +11,8 @@
 
   let question = 'Question title';
   let answer = 'Answer title';
-  let code = 'let code = "example";';
+  let codeQuestion = 'let code = "question";';
+  let codeAnswer = 'let code = "answer";';
 
   const createNewCard = ({ question, answer, sandboxId }) => {
     console.log(question, answer, sandboxId);
@@ -25,10 +27,13 @@
       question: question,
       lastReview: null
     };
-    // console.log('card', card);
-    $projects.projects[0].cards.unshift(card);
-    $projects = $projects;
-    console.log($projects);
+
+    // $projects.projects[0].cards.unshift(card);
+    // $projects = $projects;
+    // console.log($projects);
+    let data = get(projects);
+    data.projects[0].cards.unshift(card);
+    projects.set(data);
   };
 
   const submitForm = async () => {
@@ -38,7 +43,8 @@
         body: JSON.stringify({
           question,
           answer,
-          code
+          codeQuestion,
+          codeAnswer
         })
       });
       const data = await submit.json();
@@ -101,14 +107,21 @@
                   </div>
 
                   <div class="col-span-12 sm:col-span-12">
-                    <label for="code-practice" class="block text-sm font-medium text-gray-700"
-                      >Code Practice</label
+                    <label for="code-question" class="block text-sm font-medium text-gray-700"
+                      >Code Question</label
                     >
-                    <input
-                      bind:value={code}
-                      type="text"
-                      name="code-practice"
-                      id="main-concept"
+                    <textarea
+                      bind:value={codeQuestion}
+                      class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                    />
+                  </div>
+
+                  <div class="col-span-12 sm:col-span-12">
+                    <label for="code-answer" class="block text-sm font-medium text-gray-700"
+                      >Code Answer</label
+                    >
+                    <textarea
+                      bind:value={codeAnswer}
                       class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                     />
                   </div>

@@ -3,10 +3,15 @@
   import { levelLabels } from './app-utils';
 
   // console.log(selectedCard);
+  let showing = false;
 
   const handleClick = () => {
     console.log('click');
     // selectedCard.level += 1;
+  };
+
+  const handleToggle = () => {
+    showing = !showing;
   };
 </script>
 
@@ -36,11 +41,12 @@
     </span> -->
   </p>
 </div>
-<div class="bg-white px-6 py-8 shadow sm:rounded-lg" style="background-color: #3d3d3e;">
+<div class="bg-white px-6 py-8 shadow sm:rounded-lg" style="background-color: rgb(36, 40, 42);">
   <iframe
-    src={`https://codesandbox.io/embed/${selectedCard.embed_slug}?autoresize=1&expanddevtools=1&fontsize=14&hidenavigation=1&theme=dark`}
+    src={`https://codesandbox.io/embed/${selectedCard.embed_slug}?autoresize=1&expanddevtools=1&fontsize=15&hidenavigation=1&module=%2Fsrc%2Findex.js&theme=dark`}
     style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
     title={selectedCard.embed_slug}
     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+    sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
   />
 </div>
