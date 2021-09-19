@@ -58,8 +58,10 @@
     </a>
 
     <a
-      href="/archive"
+      href="/archives"
       class="text-gray-400 hover:bg-gray-700 flex-shrink-0 inline-flex items-center justify-center h-14 w-14 rounded-lg"
+      class:bg-gray-900={$page.path === '/archives'}
+      class:text-white={$page.path === '/archives'}
     >
       <span class="sr-only">Archive</span>
       <!-- Heroicon name: outline/archive -->
@@ -81,8 +83,10 @@
     </a>
 
     <a
-      href="/"
+      href="/drafts"
       class="text-gray-400 hover:bg-gray-700 flex-shrink-0 inline-flex items-center justify-center h-14 w-14 rounded-lg"
+      class:bg-gray-900={$page.path === '/drafts'}
+      class:text-white={$page.path === '/drafts'}
     >
       <span class="sr-only">Drafts</span>
       <!-- Heroicon name: outline/pencil-alt -->

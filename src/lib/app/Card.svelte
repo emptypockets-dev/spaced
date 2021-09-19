@@ -37,27 +37,10 @@
   </p>
 </div>
 <div class="bg-white px-6 py-8 shadow sm:rounded-lg" style="background-color: #3d3d3e;">
-  <!-- Codepen embed -->
   <iframe
-    src="https://codesandbox.io/embed/${selectedCard.embed_slug}?autoresize=1&expanddevtools=1&fontsize=14&hidenavigation=1&theme=dark"
+    src={`https://codesandbox.io/embed/${selectedCard.embed_slug}?autoresize=1&expanddevtools=1&fontsize=14&hidenavigation=1&theme=dark`}
     style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
-    title="Object Destructuring"
+    title={selectedCard.embed_slug}
     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-    sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
   />
-  <!-- <iframe
-    height="420"
-    style="width: 100%;"
-    scrolling="no"
-    title=""
-    src={`https://codepen.io/emptypockets-dev/embed/?default-tab=js&editable=true`}
-    frameborder="no"
-    loading="lazy"
-    allowtransparency="true"
-    allowfullscreen="true"
-  >
-    See the Pen <a href="https://codepen.io/emptypockets-dev/pen/MWoQKQx" /> by Andrey Kondratyuk (<a
-      href="https://codepen.io/emptypockets-dev">@emptypockets-dev</a
-    >) on <a href="https://codepen.io">CodePen</a>.
-  </iframe> -->
 </div>

@@ -15,6 +15,7 @@
   $: {
     selectedCard = currentCard;
     filteredCards = $projects.projects[0].cards.filter((card) => card.level >= 0);
+    console.log($projects);
   }
 
   function handleMessage(event) {
@@ -239,7 +240,7 @@
 				  ...pending
 				{:then data} -->
 
-              {#each filteredCards as card, i}
+              {#each $projects.projects[0].cards as card, i}
                 <!-- {JSON.stringify(filteredCards)} -->
                 <li
                   class="relative bg-white py-5 px-6 hover:bg-gray-100 focus-within:ring-2 focus-within:ring-inset focus-within:ring-blue-600 {currentCard ===
